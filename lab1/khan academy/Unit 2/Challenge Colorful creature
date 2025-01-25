@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Challenge: Colorful creature</title>
+        <style>
+        
+        h1 {
+            color: rgb(0, 232, 15);
+        }  
+        
+        body {
+            background-color: rgb(97, 250, 255);
+        }
+        
+        p {
+            color: rgb(0, 232, 15);
+        }
+        
+        </style>
+        
+        
+    </head>
+    <body>
+        
+        <h1>The coolest creature</h1>
+        <img src="https://www.kasandbox.org/programming-images/animals/rabbit.png" alt="Rabbit with lop ears in barn" width="203">
+        
+        
+    <p>Rabbits are little creatures with long ears and puffy tails, and they move their nose up and down in an adorable way. They eat the most orange vegetables in <em>our</em> world, and <strong>they reproduce more than any human <em>ever</em> has</strong>.</p>
+    </body>
+    <p>This <em></em>  very cute  <strong></strong>.</p>
+</html>
