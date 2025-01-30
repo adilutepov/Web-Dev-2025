@@ -1,0 +1,12 @@
+
+CSS
+p {
+    color: blue;
+}        
+/ *add CSS here* /
+h1 {
+    color: red;
+}
+HTML
+<!-- This is a comment -->
+<div class="example">Words, words, words.</div>
