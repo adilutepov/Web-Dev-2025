@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event Invite</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .event-details {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .event-details span {
+            font-weight: bold;
+        }
+
+        .rsvp-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .rsvp-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .guest-list {
+            margin-top: 30px;
+            border-top: 2px solid #eee;
+            padding-top: 15px;
+        }
+
+        .guest-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .guest-list li {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>You're Invited to the Wedding Celebration!</h1>
+        
+        <div class="event-details">
+            <p><span>Date:</span> March 5, 2025</p>
+            <p><span>Time:</span> 6:00 PM</p>
+            <p><span>Location:</span> 123 Celebration Street</p>
+            <p><span>Description:</span> Join us for a night of dancing and celebration! We can't wait to celebrate with you.</p>
+        </div>
+
+        <button class="rsvp-btn">Click to RSVP</button>
+
+        <div class="guest-list">
+            <h3>Guest List:</h3>
+            <ul>
+                <li>John Doe</li>
+                <li>Jane Smith</li>
+                <li>Emily Johnson</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
