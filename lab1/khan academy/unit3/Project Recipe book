@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Recipe Book</title>
+    <meta charset="utf-8">
+    <style>
+
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #d35400;
+            padding: 10px;
+            text-align: left;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <h1>My Recipe Book</h1>
+    
+    <h2>Contents:</h2>
+    <ol>
+        <li><a href="#pancakes">Fluffy Pancakes</a></li>
+    </ol>
+
+    <h2 id="pancakes">Fluffy Pancakes</h2>
+    <img class="recipe-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Pancakes_%28Bakery%29.jpg/800px-Pancakes_%28Bakery%29.jpg" alt="Pancakes">
+    
+    <ul>
+        <li><strong>Time:</strong> 20 minutes</li>
+        <li><strong>Serves:</strong> 4 people</li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Ingredients</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Flour</td>
+                <td>1 cup</td>
+            </tr>
+            <tr>
+                <td>Milk</td>
+                <td>1 cup</td>
+            </tr>
+            <tr>
+                <td>Eggs</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Sugar</td>
+                <td>2 tbsp</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><strong>Step 1:</strong> Mix all ingredients in a bowl until smooth.</p>
+    <p><strong>Step 2:</strong> Heat a pan and pour the batter to make pancakes.</p>
+    <p><strong>Step 3:</strong> Cook until golden brown, flip, and cook the other side.</p>
+
+    <p><em>Source: <a href="https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/">AllRecipes</a></em></p>
+
+</body>
+</html>
