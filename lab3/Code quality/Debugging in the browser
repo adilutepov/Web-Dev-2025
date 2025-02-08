@@ -1,0 +1,26 @@
+The “Sources” panel
+Your Chrome version may look a little bit different, but it still should be obvious what’s there.
+Open the example page in Chrome.
+Turn on developer tools with F12 (Mac: Cmd+Opt+I).
+Select the Sources panel.
+
+
+Breakpoints
+Let’s examine what’s going on within the code of the example page. In hello.js, click at line number 4. Yes, right on the 4 digit, not on the code.
+Congratulations! You’ve set a breakpoint. Please also click on the number for line 8.
+It should look like this (blue is where you should click):
+
+
+The command “debugger”
+We can also pause the code by using the debugger command in it, like this:
+function hello(name) {
+  let phrase = `Hello, ${name}!`;
+  debugger;  // <-- the debugger stops here
+  say(phrase);
+}
+
+// open console to see
+for (let i = 0; i < 5; i++) {
+  console.log("value,", i);
+}
+
