@@ -1,0 +1,243 @@
+Map
+let map = new Map();
+
+map.set('1', 'str1');   // a string key
+map.set(1, 'num1');     // a numeric key
+map.set(true, 'bool1'); // a boolean key
+
+// remember the regular Object? it would convert keys to string
+// Map keeps the type, so these two are different:
+alert( map.get(1)   ); // 'num1'
+alert( map.get('1') ); // 'str1'
+
+alert( map.size ); // 3
+
+
+let john = { name: "John" };
+
+// for every user, let's store their visits count
+let visitsCountMap = new Map();
+
+// john is the key for the map
+visitsCountMap.set(john, 123);
+
+alert( visitsCountMap.get(john) ); // 123
+
+let john = { name: "John" };
+let ben = { name: "Ben" };
+
+let visitsCountObj = {}; // try to use an object
+
+visitsCountObj[ben] = 234; // try to use ben object as the key
+visitsCountObj[john] = 123; // try to use john object as the key, ben object will get replaced
+
+// That's what got written!
+alert( visitsCountObj["[object Object]"] ); // 123
+
+
+Iteration over Map
+
+let recipeMap = new Map([
+  ['cucumber', 500],
+  ['tomatoes', 350],
+  ['onion',    50]
+]);
+
+// iterate over keys (vegetables)
+for (let vegetable of recipeMap.keys()) {
+  alert(vegetable); // cucumber, tomatoes, onion
+}
+
+// iterate over values (amounts)
+for (let amount of recipeMap.values()) {
+  alert(amount); // 500, 350, 50
+}
+
+// iterate over [key, value] entries
+for (let entry of recipeMap) { // the same as of recipeMap.entries()
+  alert(entry); // cucumber,500 (and so on)
+}
+
+
+// runs the function for each (key, value) pair
+recipeMap.forEach( (value, key, map) => {
+  alert(`${key}: ${value}`); // cucumber: 500 etc
+});
+
+
+
+Object.entries: Map from Object
+When a Map is created, we can pass an array (or another iterable) with key/value pairs for initialization, like this:
+
+// array of [key, value] pairs
+let map = new Map([
+  ['1',  'str1'],
+  [1,    'num1'],
+  [true, 'bool1']
+]);
+
+alert( map.get('1') ); // str1
+
+
+
+let obj = {
+  name: "John",
+  age: 30
+};
+
+let map = new Map(Object.entries(obj));
+
+alert( map.get('name') ); // John
+
+
+
+
+
+Object.fromEntries: Object from Map
+We’ve just seen how to create Map from a plain object with Object.entries(obj).
+
+There’s Object.fromEntries method that does the reverse: given an array of [key, value] pairs, it creates an object from them:
+
+let prices = Object.fromEntries([
+  ['banana', 1],
+  ['orange', 2],
+  ['meat', 4]
+]);
+
+// now prices = { banana: 1, orange: 2, meat: 4 }
+
+alert(prices.orange); // 2
+
+
+let map = new Map();
+map.set('banana', 1);
+map.set('orange', 2);
+map.set('meat', 4);
+
+let obj = Object.fromEntries(map.entries()); // make a plain object (*)
+
+// done!
+// obj = { banana: 1, orange: 2, meat: 4 }
+
+alert(obj.orange); // 2
+
+
+let obj = Object.fromEntries(map); // omit .entries()
+
+
+
+
+
+SEt
+let set = new Set();
+
+let john = { name: "John" };
+let pete = { name: "Pete" };
+let mary = { name: "Mary" };
+
+// visits, some users come multiple times
+set.add(john);
+set.add(pete);
+set.add(mary);
+set.add(john);
+set.add(mary);
+
+// set keeps only unique values
+alert( set.size ); // 3
+
+for (let user of set) {
+  alert(user.name); // John (then Pete and Mary)
+}
+
+
+
+Iteration over Set
+We can loop over a set either with for..of or using forEach:
+
+let set = new Set(["oranges", "apples", "bananas"]);
+
+for (let value of set) alert(value);
+
+// the same with forEach:
+set.forEach((value, valueAgain, set) => {
+  alert(value);
+});
+
+
+
+
+TAsks
+function unique(arr) {
+  return Array.from(new Set(arr));
+}
+
+
+ap, pan -> anp
+ear, era, are -> aer
+cheaters, hectares, teachers -> aceehrst
+...
+We’ll use the letter-sorted variants as map keys to store only one value per each key:
+
+function aclean(arr) {
+  let map = new Map();
+
+  for (let word of arr) {
+    // split the word by letters, sort them and join back
+    let sorted = word.toLowerCase().split('').sort().join(''); // (*)
+    map.set(sorted, word);
+  }
+
+  return Array.from(map.values());
+}
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+alert( aclean(arr) );
+Letter-sorting is done by the chain of calls in the line (*).
+
+For convenience let’s split it into multiple lines:
+
+let sorted = word // PAN
+  .toLowerCase() // pan
+  .split('') // ['p','a','n']
+  .sort() // ['a','n','p']
+  .join(''); // anp
+Two different words 'PAN' and 'nap' receive the same letter-sorted form 'anp'.
+
+The next line put the word into the map:
+
+map.set(sorted, word);
+If we ever meet a word the same letter-sorted form again, then it would overwrite the previous value with the same key in the map. So we’ll always have at maximum one word per letter-form.
+
+At the end Array.from(map.values()) takes an iterable over map values (we don’t need keys in the result) and returns an array of them.
+
+Here we could also use a plain object instead of the Map, because keys are strings.
+
+That’s how the solution can look:
+
+function aclean(arr) {
+  let obj = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    let sorted = arr[i].toLowerCase().split("").sort().join("");
+    obj[sorted] = arr[i];
+  }
+
+  return Object.values(obj);
+}
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+alert( aclean(arr) );
+
+
+
+let map = new Map();
+
+map.set("name", "John");
+
+let keys = Array.from(map.keys());
+
+keys.push("more");
+
+alert(keys); // name, more
