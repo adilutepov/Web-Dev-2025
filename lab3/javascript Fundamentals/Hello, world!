@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  
+  <p>Before the script...</p>
+
+  <script>
+    alert('Hello, world!');
+  </script>
+
+  <p>...After the script.</p>
+
+  <!-- Fixed incorrect closing tag -->
+</body>
+</html>
+
+<!-- Unused or incomplete script commented out -->
+<!-- <script type="text/javascript"><!-- ... //--></script> -->
+
+<!-- External script includes -->
+<script src="/path/to/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+<script src="/js/script1.js"></script>
+<script src="/js/script2.js"></script>
+
+<!-- Removed duplicate DOCTYPE and HTML, kept only necessary script -->
+<script src="alert.js"></script>
+
+<script>
+    alert("I'm JavaScript!");
+</script>
