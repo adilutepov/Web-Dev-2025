@@ -1,0 +1,306 @@
+Array destructuring
+Here’s an example of how an array is destructured into variables:
+
+// we have an array with a name and surname
+let arr = ["John", "Smith"]
+
+// destructuring assignment
+// sets firstName = arr[0]
+// and surname = arr[1]
+let [firstName, surname] = arr;
+
+alert(firstName); // John
+alert(surname);  // Smith
+Now we can work with variables instead of array members.
+
+It looks great when combined with split or other array-returning methods:
+
+let [firstName, surname] = "John Smith".split(' ');
+alert(firstName); // John
+alert(surname);  // Smith
+
+
+// let [firstName, surname] = arr;
+let firstName = arr[0];
+let surname = arr[1];
+
+// second element is not needed
+let [firstName, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+alert( title ); // Consul
+
+
+
+let [name1, name2] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+alert(name1); // Julius
+alert(name2); // Caesar
+// Further items aren't assigned anywhere
+
+
+
+let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+// rest is an array of items, starting from the 3rd one
+alert(rest[0]); // Consul
+alert(rest[1]); // of the Roman Republic
+alert(rest.length); // 2
+
+
+
+
+let [name1, name2, ...titles] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+// now titles = ["Consul", "of the Roman Republic"]
+
+
+vlet [firstName, surname] = [];
+
+alert(firstName); // undefined
+alert(surname); // undefined
+
+// default values
+let [name = "Guest", surname = "Anonymous"] = ["Julius"];
+
+alert(name);    // Julius (from array)
+alert(surname); // Anonymous (default used)
+
+
+// runs only prompt for surname
+let [name = prompt('name?'), surname = prompt('surname?')] = ["Julius"];
+
+alert(name);    // Julius (from array)
+alert(surname); // whatever prompt gets
+
+
+
+Object destructuring
+let {var1, var2} = {var1:…, var2:…}
+
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+let {title, width, height} = options;
+
+alert(title);  // Menu
+alert(width);  // 100
+alert(height); // 200
+
+
+// changed the order in let {...}
+let {height, width, title} = { title: "Menu", height: 200, width: 100 }
+
+
+
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+// { sourceProperty: targetVariable }
+let {width: w, height: h, title} = options;
+
+// width -> w
+// height -> h
+// title -> title
+
+alert(title);  // Menu
+alert(w);      // 100
+alert(h);      // 200
+
+
+let options = {
+  title: "Menu"
+};
+
+let {width = 100, height = 200, title} = options;
+
+alert(title);  // Menu
+alert(width);  // 100
+alert(height); // 200
+
+
+let options = {
+  title: "Menu"
+};
+
+let {width = prompt("width?"), title = prompt("title?")} = options;
+
+alert(title);  // Menu
+alert(width);  // (whatever the result of prompt is)
+
+
+
+let options = {
+  title: "Menu"
+};
+
+let {width: w = 100, height: h = 200, title} = options;
+
+alert(title);  // Menu
+alert(w);      // 100
+alert(h);      // 200
+
+
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+// only extract title as a variable
+let { title } = options;
+
+alert(title); // Menu
+
+
+
+The rest pattern “…”
+What if the object has more properties than we have variables? Can we take some and then assign the “rest” somewhere?
+
+We can use the rest pattern, just like we did with arrays. It’s not supported by some older browsers (IE, use Babel to polyfill it), but works in modern ones.
+
+It looks like this:
+
+let options = {
+  title: "Menu",
+  height: 200,
+  width: 100
+};
+
+// title = property named title
+// rest = object with the rest of properties
+let {title, ...rest} = options;
+
+// now title="Menu", rest={height: 200, width: 100}
+alert(rest.height);  // 200
+alert(rest.width);   // 100
+
+
+Nested destructuring
+
+let options = {
+  size: {
+    width: 100,
+    height: 200
+  },
+  items: ["Cake", "Donut"],
+  extra: true
+};
+
+// destructuring assignment split in multiple lines for clarity
+let {
+  size: { // put size here
+    width,
+    height
+  },
+  items: [item1, item2], // assign items here
+  title = "Menu" // not present in the object (default value is used)
+} = options;
+
+alert(title);  // Menu
+alert(width);  // 100
+alert(height); // 200
+alert(item1);  // Cake
+alert(item2);  // Donut
+
+
+
+Smart function parameters
+function showMenu(title = "Untitled", width = 200, height = 100, items = []) {
+  // ...
+}
+function showMenu(title = "Untitled", width = 200, height = 100, items = []) {
+  // ...
+}
+
+
+// we pass object to function
+let options = {
+  title: "My menu",
+  items: ["Item1", "Item2"]
+};
+
+// ...and it immediately expands it to variables
+function showMenu({title = "Untitled", width = 200, height = 100, items = []}) {
+  // title, items – taken from options,
+  // width, height – defaults used
+  alert( `${title} ${width} ${height}` ); // My Menu 200 100
+  alert( items ); // Item1, Item2
+}
+
+showMenu(options);
+
+
+
+
+let options = {
+  title: "My menu",
+  items: ["Item1", "Item2"]
+};
+
+function showMenu({
+  title = "Untitled",
+  width: w = 100,  // width goes to w
+  height: h = 200, // height goes to h
+  items: [item1, item2] // items first element goes to item1, second to item2
+}) {
+  alert( `${title} ${w} ${h}` ); // My Menu 100 200
+  alert( item1 ); // Item1
+  alert( item2 ); // Item2
+}
+
+showMenu(options);
+
+
+
+
+function({
+  incomingProperty: varName = defaultValue
+  ...
+})
+
+showMenu({}); // ok, all values are default
+
+showMenu(); // this would give an error
+
+
+function showMenu({ title = "Menu", width = 100, height = 200 } = {}) {
+  alert( `${title} ${width} ${height}` );
+}
+
+showMenu(); // Menu 100 200
+
+
+
+
+Tasks
+let user = {
+  name: "John",
+  years: 30
+};
+
+let {name, years: age, isAdmin = false} = user;
+
+alert( name ); // John
+alert( age ); // 30
+alert( isAdmin ); // false
+
+
+function topSalary(salaries) {
+
+  let maxSalary = 0;
+  let maxName = null;
+
+  for(const [name, salary] of Object.entries(salaries)) {
+    if (maxSalary < salary) {
+      maxSalary = salary;
+      maxName = name;
+    }
+  }
+
+  return maxName;
+}
