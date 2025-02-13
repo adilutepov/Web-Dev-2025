@@ -1,6 +1,9 @@
 document.getElementById('add-task-button').addEventListener('click', function() {
     const taskText = document.getElementById('task-input').value;
-    if (taskText === '') return;
+    if (taskText === ''){
+        alert('Write some tasks'); 
+        return;
+    }
 
     const taskItem = document.createElement('li');
     taskItem.className = 'task-item';
