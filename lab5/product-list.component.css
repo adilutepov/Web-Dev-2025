@@ -1,0 +1,30 @@
+.product-container {
+    width: 100%;
+    overflow-x: auto; 
+    white-space: nowrap;
+    background-color: #8bdfd6; 
+    padding: 20px;
+  }
+  
+  .product-list {
+    display: flex;
+    gap: 40px; 
+  }
+  
+  .product-card {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 500x;
+    background: rgb(163, 124, 124);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  

@@ -1,0 +1,15 @@
+<div class="product-container">
+    <div class="product-list">
+      <div *ngFor="let product of products; let i = index" class="product-card">
+        <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p>Рейтинг: {{ product.rating }} ⭐  - Likes: {{ product.likes }}</p>
+        <a [href]="product.productUrl" target="_blank">kaspi link</a>
+        <button (click)="shareProduct(product)">copy the link</button>
+        <button (click)="removeProduct(i)">delete</button>
+        <button (click)="likeProduct(product)">Like</button>
+      </div>
+    </div>
+  </div>
+  
