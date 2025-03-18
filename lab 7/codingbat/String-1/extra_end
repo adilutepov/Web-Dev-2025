@@ -1,0 +1,6 @@
+def extra_end(str):
+  copy = str[len(str)-2:]
+  answer =copy
+  for i in range(2):
+    answer+=copy
+  return answer
