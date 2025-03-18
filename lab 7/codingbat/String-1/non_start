@@ -1,0 +1,4 @@
+def non_start(a, b):
+  a_a = a[1:]
+  b_b = b[1:]
+  return a_a+b_b
