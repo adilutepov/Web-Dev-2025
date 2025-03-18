@@ -1,0 +1,5 @@
+def without_end(str):
+  some = len(str)
+  start = str[1:]
+  end = start[:-1]
+  return end
