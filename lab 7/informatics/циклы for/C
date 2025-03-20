@@ -1,0 +1,16 @@
+import math
+
+def find_perfect_squares(a, b):
+    start = math.ceil(math.sqrt(a))
+    end = math.floor(math.sqrt(b))
+    
+    return [i**2 for i in range(start, end + 1)]
+
+if __name__ == "__main__":
+    a = int(input())
+    b = int(input())
+    
+    squares = find_perfect_squares(a, b)
+    
+    if squares:
+        print(*squares)
