@@ -1,0 +1,16 @@
+def find_numbers(a, b, c, d):
+    result = []
+    for i in range(a, b + 1):
+        if i % d == c:        
+            result.append(i) 
+    return result
+
+if __name__ == "__main__":
+    a = int(input())
+    b = int(input())
+    c = int(input())
+    d = int(input())
+
+    numbers = find_numbers(a, b, c, d)
+    if numbers:
+        print(*numbers)
