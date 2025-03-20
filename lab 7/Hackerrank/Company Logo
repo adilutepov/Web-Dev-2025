@@ -1,0 +1,17 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+
+if __name__ == '__main__':
+    s = input()
+    letter_counts = Counter(s)
+
+    sorted_letters = sorted(letter_counts.items(), key=lambda x: (-x[1], x[0]))
+
+    for letter, count in sorted_letters[:3]:
+        print(f"{letter} {count}")
