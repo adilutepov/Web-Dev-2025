@@ -1,0 +1,9 @@
+def calculate_sum(n, numbers):
+    return sum(numbers)
+
+if __name__ == "__main__":
+    n = int(input())    
+    numbers = []
+    for _ in range(n):
+        numbers.append(int(input()))
+    print(calculate_sum(n, numbers))
