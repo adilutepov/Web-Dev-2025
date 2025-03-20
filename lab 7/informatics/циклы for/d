@@ -1,0 +1,13 @@
+def count_digit_occurrences(x, d):
+    count = 0
+    for digit in str(x):  
+      if digit == str(d):  
+            count += 1
+    return count
+
+if __name__ == "__main__":
+    
+    x = int(input("Введите число x: "))
+    d = int(input("Введите цифру d: "))
+    
+    print(count_digit_occurrences(x, d))
