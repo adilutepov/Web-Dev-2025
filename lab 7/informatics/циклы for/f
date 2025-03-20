@@ -1,0 +1,11 @@
+def reverse_number(x):
+    reversed_x = 0
+    while x > 0:
+        reversed_x = reversed_x * 10 + x % 10  
+        x //= 10  
+    return reversed_x
+
+if __name__ == "__main__":
+    x = int(input())
+    
+    print(reverse_number(x))
