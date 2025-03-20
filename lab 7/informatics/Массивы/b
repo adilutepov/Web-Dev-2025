@@ -1,0 +1,7 @@
+def even_elements(arr):
+    return [x for x in arr if x % 2 == 0]
+
+if __name__ == "__main__":
+    n = int(input())
+    arr = list(map(int, input().split()))
+    print(*even_elements(arr))
