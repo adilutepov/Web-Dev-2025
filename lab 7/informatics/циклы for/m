@@ -1,0 +1,9 @@
+def count_zeros(numbers):
+    return numbers.count(0)
+
+if __name__ == "__main__":
+    n = int(input())
+    numbers = []
+    for _ in range(n):
+        numbers.append(int(input()))
+    print(count_zeros(numbers))
