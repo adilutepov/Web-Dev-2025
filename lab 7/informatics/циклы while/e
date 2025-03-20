@@ -1,0 +1,12 @@
+def find_min_k(n):
+    k = 0
+    power = 1  
+    while power < n:  
+        power *= 2  
+        k += 1      
+    return k
+
+if __name__ == "__main__":
+    
+    n = int(input())
+    print(find_min_k(n))
