@@ -1,0 +1,10 @@
+def calculate_sum(numbers):
+    return sum(numbers)
+
+if __name__ == "__main__":
+    numbers = list(map(int, input("Введите 100 чисел через пробел: ").split()))
+    
+    if len(numbers) == 100:
+        print(calculate_sum(numbers))
+    else:
+        print("Ошибка: необходимо ввести ровно 100 чисел.")
