@@ -1,0 +1,16 @@
+[
+  {
+    "id": 2,
+    "name": "TechNova",
+    "description": "Innovative software solutions for modern businesses.",
+    "city": "Almaty",
+    "address": "Dostyk Avenue, 45"
+  },
+  {
+    "id": 3,
+    "name": "GreenWorks",
+    "description": "Eco-friendly energy and sustainability projects.",
+    "city": "Astana",
+    "address": "Independence Street, 101"
+  }
+]
